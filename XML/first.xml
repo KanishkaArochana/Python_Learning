@@ -1,0 +1,17 @@
+<!-- # Data Exchange a Formate -->
+
+<!--  XML Stracture -->
+<?xml version ="1.0" encoding="UTF-8"?>
+<a>
+    <b>X</b>
+    <c>
+        <d>Y</d>
+        <e>Z</e>
+    </c>
+</a>
+
+<owner>
+    <name>Bob Fransis</name>
+    <nic type="int">1234567890</nic>
+    <email hide="yes"/>  <!-- Self Closing Tag -->
+</owner>
