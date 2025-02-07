@@ -38,4 +38,14 @@ print(x) # Boob
 x = person.get("Weight")
 print(x) # None
 
+# ------------------------ Add value -----------------------------------------------------
+    # variable_name[key] = value
 
+dict = {}
+
+dict[0] = "Bob"
+dict[1] = "John"
+dict[2] = "Rock"
+
+dict["Age"] = [20, 33, 24]
+print(dict) # {0: 'Bob', 1: 'John', 2: 'Rock', 'Age': [20, 33, 24]}
