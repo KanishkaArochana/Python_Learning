@@ -49,3 +49,17 @@ dict[2] = "Rock"
 
 dict["Age"] = [20, 33, 24]
 print(dict) # {0: 'Bob', 1: 'John', 2: 'Rock', 'Age': [20, 33, 24]}
+
+# ------------------------ Update value-----------------------------------------------------
+    # variable_name[key] = value
+
+vehicle = {"brand": "Ford", "model": "Mustang","year": 2020}
+# Befor Update
+print(vehicle) # {'brand': 'Ford', 'model': 'Mustang', 'year': 2020}
+
+vehicle["brand"] = "Jeep"
+vehicle["model"] = "Compass"
+vehicle["year"] = 2022
+# After Update
+print(vehicle) # {'brand': 'Jeep', 'model': 'Compass', 'year': 2022}
+
