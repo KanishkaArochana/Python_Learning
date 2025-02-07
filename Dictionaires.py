@@ -27,3 +27,15 @@ print(person.keys()) # dict_keys(['Name', 'Age', 'Height'])
 print(person.values()) # dict_values(['Boob', 21, 6.2])
 print(person.items()) # dict_items([('Name', 'Boob'), ('Age', 21), ('Height', 6.2)])
 
+#Acces Value
+
+x = person["Name"]
+print(x) # Boob
+
+x = person.get("Name")
+print(x) # Boob
+
+x = person.get("Weight")
+print(x) # None
+
+
