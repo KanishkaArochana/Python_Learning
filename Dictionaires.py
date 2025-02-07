@@ -63,3 +63,34 @@ vehicle["year"] = 2022
 # After Update
 print(vehicle) # {'brand': 'Jeep', 'model': 'Compass', 'year': 2022}
 
+# ---------------------------------- Iteam Remove -----------------------------------------------------
+
+# 1.pop()
+  #variable_name.pop(key)
+
+vehicle = {"brand": "Ford", "model": "Mustang","year": 2020}
+# Befor  Remove 
+print(vehicle) # {'brand': 'Ford', 'model': 'Mustang', 'year': 2020}
+
+vehicle.pop("model")
+
+# After  Remove (Remove the model key)
+print(vehicle) # {'brand': 'Ford', 'year': 2020}
+
+
+# 2.del()
+  # del variable_name[key]
+
+vehicle = {"brand": "Ford", "model": "Mustang","year": 2020}
+# Befor  Remove 
+print(vehicle) # {'brand': 'Ford', 'model': 'Mustang', 'year': 2020}
+
+del vehicle["brand"]
+
+# After  Remove (Remove the brand key)
+print(vehicle) # {'model': 'Mustang', 'year': 2020}
+
+# All delete Dictionaires
+del vehicle
+print(vehicle) # NameError: name 'vehicle' is not defined
+
