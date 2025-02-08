@@ -40,3 +40,16 @@ except:
 
 finally :
     print("The 'try except' is finished") # Always Running
+
+#------------------------------------Erro Raise---------------------------------------------
+
+# our make Exception
+
+# if condition:
+#     raise Exception()
+
+num = [3,4,5,7]
+
+if len(num) > 3: # len() -->Count of list length
+    raise Exception("List length must be less than 3")
+
