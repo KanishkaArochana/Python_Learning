@@ -11,3 +11,12 @@ except :
 
 #------------------------------------------------------------------------------
 
+try :
+    print(x)
+except NameError:
+    print("Variable X is not defined") # SyntaxError: invalid syntax
+
+except:
+    print("Something went wrong")
+
+#------------------------------------------------------------------------------
