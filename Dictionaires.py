@@ -94,3 +94,61 @@ print(vehicle) # {'model': 'Mustang', 'year': 2020}
 del vehicle
 print(vehicle) # NameError: name 'vehicle' is not defined
 
+# ---------------------------------- Key Output -----------------------------------------------------
+
+car = {"brand": "Ford", "model": "Mustang","year": 2020}
+
+
+for x in car:
+  # Print Keys
+    # print(x)
+# brand
+# model
+# year
+
+# Print Vales
+ print(car[x])
+# Ford
+# Mustang
+# 2020
+
+# Print Keys and Values
+ print(x,car[x])
+# model Mustang
+# 2020
+# year 2020
+
+car = {"brand": "Ford", "model": "Mustang","year": 2020}
+  # Print Keys
+print(car.keys())
+
+for x in car.keys():
+ print(x)
+# dict_keys(['brand', 'model', 'year'])
+# brand
+# model
+# year
+ 
+print("_________________________________________")
+
+# Print Vales
+print(car.values())
+
+for x in car.values():
+ print(x)
+# dict_values(['Ford', 'Mustang', 2020])
+# Ford
+# Mustang
+# 2020
+
+print("_________________________________________")
+
+# Print Keys and Values
+print(car.items())
+
+for x in car.items():
+ print(x)
+# dict_items([('brand', 'Ford'), ('model', 'Mustang'), ('year', 2020)])
+# ('brand', 'Ford')
+# ('model', 'Mustang')
+# ('year', 2020)
