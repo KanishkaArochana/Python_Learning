@@ -27,3 +27,14 @@ fhand.close() # Close the file
 #2.Read File
 print(fhand.read())
 fhand.close()
+
+#--------------------------------------
+#Write File
+fhand = open("C:/Users/kanis/OneDrive/Desktop/Phython/first.txt" , "w")
+fhand.write("Python is fun \n")
+fhand.write("Hello Word \n ")
+fhand.write("Testing")
+fhand.close()
+
+fhand = open("C:/Users/kanis/OneDrive/Desktop/Phython/first.txt" , "r")
+print(fhand.read())
