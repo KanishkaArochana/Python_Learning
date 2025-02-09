@@ -38,3 +38,8 @@ fhand.close()
 
 fhand = open("C:/Users/kanis/OneDrive/Desktop/Phython/first.txt" , "r")
 print(fhand.read())
+
+# Close the file
+print("Closed :", fhand.closed) # Closed : False
+fhand.close()
+print("Closed :", fhand.closed) # Closed : True
