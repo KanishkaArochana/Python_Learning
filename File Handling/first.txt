@@ -1,0 +1,244 @@
+using Godot;
+using System;
+using System.Threading.Tasks;
+
+public partial class Enemy : CharacterBody2D
+{
+    private float gravity;
+    private Node2D Player;
+    private bool chase = false;
+    private float speed = 50f;
+    private AnimatedSprite2D animatedSprite;
+
+    public override void _Ready()
+    {
+        // Initialize gravity from project settings
+        gravity = (float)ProjectSettings.GetSetting("physics/2d/default_gravity");
+
+        // Get reference to Area2D and connect signals
+        var area = GetNode<Area2D>("Area2D");
+        area.BodyEntered += OnArea2DBodyEntered;
+        area.BodyExited += OnArea2DBodyExited;
+
+        // Find the Player node
+        Player = GetNodeOrNull<Node2D>("../Player");
+
+        // Cache the AnimatedSprite2D
+        animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+
+        // Play idle animation at start
+        animatedSprite.Play("Idle");
+
+        // Connect the signal for enemy death (to be triggered when the player touches)
+        var deathArea = GetNode<Area2D>("DeathArea");
+        deathArea.BodyEntered += _on_enemy_death_body_entered;
+
+        var damageArea = GetNode<Area2D>("DamageArea");
+        damageArea.BodyEntered += _on_player_damage_body_entered;
+
+
+    }
+
+    public override void _PhysicsProcess(double delta)
+    {
+        // Apply gravity
+        Velocity = new Vector2(Velocity.X, Velocity.Y + gravity * (float)delta);
+
+        if (chase && Player != null)
+        {
+            // Calculate direction to the Player
+            var direction = (Player.Position - Position).Normalized();
+
+            // Flip sprite based on direction
+            animatedSprite.FlipH = direction.X > 0;
+
+            // Play chase animation if not in Death animation
+            if (animatedSprite.Animation != "Death")
+                animatedSprite.Play("Jump");
+
+            // Update velocity
+            Velocity = new Vector2(direction.X * speed, Velocity.Y);
+        }
+        else
+        {
+            // Gradually stop horizontal movement
+            Velocity = new Vector2(Mathf.Lerp(Velocity.X, 0, 0.1f), Velocity.Y);
+
+            // Play idle animation if not in Death animation
+            if (animatedSprite.Animation != "Death")
+            {
+                animatedSprite.Play("Idle");
+            }
+        }
+
+        // Move the enemy
+        MoveAndSlide();
+    }
+
+    private void OnArea2DBodyEntered(Node body)
+    {
+        if (body.Name == "Player")
+        {
+            chase = true;
+            GD.Print("Player Entered");
+        }
+    }
+
+    private void OnArea2DBodyExited(Node body)
+    {
+        if (body.Name == "Player")
+        {
+            chase = false;
+            GD.Print("Player Exited");
+        }
+    }
+
+    // Corrected _on_enemy_death_body_entered method
+    public async void _on_enemy_death_body_entered(Node body)
+    {
+        if (body.Name == "Player")
+        {
+            GD.Print("Player collided with enemy, starting death animation");
+
+            // Stop chasing and start the death animation
+            chase = false;
+            animatedSprite.Play("Death");
+
+            // Wait for the death animation to finish before removing the enemy
+            await ToSignal(animatedSprite, "animation_finished");
+
+            // Free the enemy (remove from the scene)
+            QueueFree();
+        }
+    }
+
+    public void _on_player_damage_body_entered(Node body)
+    {
+        if (body.Name == "Player")
+        {
+            var player = body as Player;
+            if (player != null)
+        {
+            player.health -= 20; // Reduce the health of the player
+        }
+
+            // Stop chasing and start the death animation
+            chase = false;
+            animatedSprite.Play("Death");
+
+            // Wait for the death animation to finish before removing the enemy
+            await ToSignal(animatedSprite, "animation_finished");
+
+            // Free the enemy (remove from the scene)
+            QueueFree();
+        }
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+player.cs
+
+
+
+
+using Godot;
+using System;
+
+public partial class Player : CharacterBody2D
+{
+    // Constants for movement
+    public const float Speed = 120.0f;
+    public const float JumpVelocity = -350.0f;
+    public const float Gravity = 1200.0f;
+
+    // Player attributes
+    public float health = 100.0f;
+
+    // AnimationPlayer and Label references
+    private AnimationPlayer anim;
+    private Label healthLabel;
+
+    public override void _Ready()
+    {
+        // Initialize AnimationPlayer and health label
+        anim = GetNode<AnimationPlayer>("AnimationPlayer");
+        healthLabel = GetNode<Label>("Label");
+    }
+
+    public override void _PhysicsProcess(double delta)
+    {
+        Vector2 velocity = Velocity;
+
+        // Update health label text
+        healthLabel.Text = health.ToString() + " %";
+
+        // Add gravity
+        if (!IsOnFloor())
+        {
+            velocity.Y += Gravity * (float)delta;
+        }
+
+        // Handle Jump
+        if (Input.IsActionJustPressed("ui_accept") && IsOnFloor())
+        {
+            velocity.Y = JumpVelocity;
+            anim.Play("Jump"); // Play jump animation
+        }
+
+        // Get the input direction and handle movement
+        Vector2 direction = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
+
+        if (direction.X < 0) // Moving left
+        {
+            GetNode<AnimatedSprite2D>("AnimatedSprite2D").FlipH = true;
+        }
+        else if (direction.X > 0) // Moving right
+        {
+            GetNode<AnimatedSprite2D>("AnimatedSprite2D").FlipH = false;
+        }
+
+        if (direction != Vector2.Zero)
+        {
+            velocity.X = direction.X * Speed;
+
+            if (velocity.Y == 0)
+            {
+                anim.Play("Run"); // Play run animation
+            }
+        }
+        else
+        {
+            velocity.X = Mathf.MoveToward(velocity.X, 0, Speed * (float)delta);
+
+            if (velocity.Y == 0)
+            {
+                anim.Play("Idle"); // Play idle animation
+            }
+        }
+
+        if (velocity.Y > 0)
+        {
+            anim.Play("Fall"); // Play fall animation
+        }
+
+        // Apply the velocity
+        Velocity = velocity;
+        MoveAndSlide();
+
+        // Check health and reset if necessary
+        if (health <= 0)
+        {
+            QueueFree();
+            GetTree().ChangeSceneToFile("res://Scenes/Main.tscn");
+        }
+    }
+}
