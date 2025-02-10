@@ -7,3 +7,12 @@ def happyBirthday():
 #Call the function
 happyBirthday()
 
+#---------------------------------------------------------------
+
+# How to inpunt data in funtion
+def greeting(name):
+    print("Welcome", name)
+
+#Call the function
+greeting("Kanishka") #W elcome Kanishka
+greeting("Arochana") # Welcome Arochana
