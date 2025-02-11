@@ -31,3 +31,12 @@ info("Kanishka" ,24)
 info(25 ,"Arochana")
 # Name:  25
 # Age:  Arochana
+
+# --------------------------- Return ------------------------------
+
+# Can not a result display but can result output 
+
+def add():
+    return 3 + 3
+
+print(add()) #6
