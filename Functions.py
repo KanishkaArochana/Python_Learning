@@ -51,3 +51,12 @@ name("Kanishka", "Arochana") # Hello,Kanishka Arochana
 
 # name("Kanishka") # Error --> TypeError: name() missing 1 required positional argument: 'lname' (Two Araguments have)
 
+# --------------------------------- Arbitrary Arguments ------------------------------
+
+# Don't idea number of Arguments in function to use (*)
+def win_function(*winners):
+    print(winners) # ('Emil', 'Linus', 'Boob')
+    print("First place goes to", winners[0]) # First place goes to Emil\
+
+# Call the function
+win_function("Emil", "Linus", "Boob") 
