@@ -40,3 +40,14 @@ def add():
     return 3 + 3
 
 print(add()) #6
+
+# ==================================== Function 2 ===================================================
+
+def name(fname, lname):
+    print("Hello," + fname + " " + lname)
+
+# Call the function
+name("Kanishka", "Arochana") # Hello,Kanishka Arochana
+
+# name("Kanishka") # Error --> TypeError: name() missing 1 required positional argument: 'lname' (Two Araguments have)
+
