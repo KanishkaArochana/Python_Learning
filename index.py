@@ -17,3 +17,12 @@ print(x) # 20
 
 #display the data type of x:
 print(type(x))  #<class 'int'>
+
+# 3. Float
+x = 20.5
+
+#display x:
+print(x) # 20.5
+
+#display the data type of x:
+print(type(x))  #<class 'float'>
