@@ -35,3 +35,12 @@ print(x) # 1j
 
 #display the data type of x:
 print(type(x))  #<class 'complex'>
+
+# 5.List (Used to store multipla value in one variable --> [])
+x = ["apple", "banana", "cherry", 41]
+
+#display x:
+print(x)  # ['apple', 'banana', 'cherry', 41]
+
+#display the data type of x:
+print(type(x)) # <class 'list'>
