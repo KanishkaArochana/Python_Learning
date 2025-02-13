@@ -26,3 +26,12 @@ print(x) # 20.5
 
 #display the data type of x:
 print(type(x))  #<class 'float'>
+
+# 4.Complex
+x = 1j
+
+#display x:
+print(x) # 1j
+
+#display the data type of x:
+print(type(x))  #<class 'complex'>
