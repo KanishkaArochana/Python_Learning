@@ -8,3 +8,12 @@ print("String is :" , x) # String is : Hello World
 
 #display the data type of x:
 print(type(x))  #<class 'str'>
+
+# 2.Interger
+x = 20
+
+#display x:
+print(x) # 20
+
+#display the data type of x:
+print(type(x))  #<class 'int'>
