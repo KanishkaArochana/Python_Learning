@@ -84,3 +84,13 @@ print(x) # {'apple', 'banana', 'cherry'}
 
 #display the data type of x:
 print(type(x)) # <class 'set'>
+
+
+# 10.Frozenset
+x = frozenset({"apple", "banana", "cherry"})
+
+#display x:
+print(x) # frozenset({'banana', 'apple', 'cherry'})
+
+#display the data type of x:
+print(type(x)) # <class 'frozenset'>
