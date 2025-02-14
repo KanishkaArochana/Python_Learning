@@ -64,3 +64,13 @@ print(x)  # range(0, 6)
 
 #display the data type of x:
 print(type(x))  # <class 'range'>
+
+
+# 8.Dictionary (Use to key value pair --> {} )
+x = {"name" : "John", "age" : 36}
+
+#display x:
+print(x) # {'name': 'John', 'age': 36}
+
+#display the data type of x:
+print(type(x)) # <class 'dict'>
