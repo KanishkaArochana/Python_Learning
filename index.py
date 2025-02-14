@@ -44,3 +44,13 @@ print(x)  # ['apple', 'banana', 'cherry', 41]
 
 #display the data type of x:
 print(type(x)) # <class 'list'>
+
+
+# 6.Tuple (Same to list but after assint value do not change --> () )
+x = ("apple", "banana", "cherry")
+
+#display x:
+print(x)  # ['apple', 'banana', 'cherry']
+
+#display the data type of x:
+print(type(x))  # <class 'tuple'>
