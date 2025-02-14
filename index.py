@@ -54,3 +54,13 @@ print(x)  # ['apple', 'banana', 'cherry']
 
 #display the data type of x:
 print(type(x))  # <class 'tuple'>
+
+
+# 7.Range
+x = range(6)
+
+#display x:
+print(x)  # range(0, 6)
+
+#display the data type of x:
+print(type(x))  # <class 'range'>
