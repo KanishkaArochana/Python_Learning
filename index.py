@@ -74,3 +74,13 @@ print(x) # {'name': 'John', 'age': 36}
 
 #display the data type of x:
 print(type(x)) # <class 'dict'>
+
+
+# 9.Set
+x = {"apple", "banana", "cherry"}
+
+#display x:
+print(x) # {'apple', 'banana', 'cherry'}
+
+#display the data type of x:
+print(type(x)) # <class 'set'>
