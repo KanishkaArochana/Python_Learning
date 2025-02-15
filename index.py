@@ -125,3 +125,13 @@ print(x) # bytearray(b'\x00\x00\x00\x00\x00')
 
 #display the data type of x:
 print(type(x)) # <class 'bytearray'>
+
+
+# 14.Memory View
+x = memoryview(bytes(5))
+
+#display x:
+print(x) # <memory at 0x0000021520D64AC0>
+
+#display the data type of x:
+print(type(x)) # <class 'memoryview'>
