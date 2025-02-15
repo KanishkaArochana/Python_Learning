@@ -115,3 +115,13 @@ print(x) # b'Hello'
 
 #display the data type of x:
 print(type(x)) # <class 'bytes'>
+
+
+# 13. Byte Array
+x = bytearray(5)
+
+#display x:
+print(x) # bytearray(b'\x00\x00\x00\x00\x00')
+
+#display the data type of x:
+print(type(x)) # <class 'bytearray'>
