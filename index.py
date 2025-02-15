@@ -94,3 +94,13 @@ print(x) # frozenset({'banana', 'apple', 'cherry'})
 
 #display the data type of x:
 print(type(x)) # <class 'frozenset'>
+
+
+# 11.Boolian
+x = True
+
+#display x:
+print(x) # True
+
+#display the data type of x:
+print(type(x)) # <class 'bool'>
