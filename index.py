@@ -104,3 +104,14 @@ print(x) # True
 
 #display the data type of x:
 print(type(x)) # <class 'bool'>
+
+
+
+# 12.Bytes
+x = b"Hello"
+
+#display x:
+print(x) # b'Hello'
+
+#display the data type of x:
+print(type(x)) # <class 'bytes'>
