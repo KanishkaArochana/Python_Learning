@@ -145,3 +145,13 @@ print(x) # None
 
 #display the data type of x:
 print(type(x)) # <class 'NoneType'>
+
+
+#---------------------------------------------- Concatenation ---------------------------------------------------
+
+line = "Hello" + "Word"
+print(line) #HelloWord
+print(type(line)) #<class 'str'>
+
+# line = "Hello" + 4
+print(line) # TypeError: can only concatenate str (not "int") to str
