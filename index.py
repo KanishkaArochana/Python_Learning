@@ -135,3 +135,13 @@ print(x) # <memory at 0x0000021520D64AC0>
 
 #display the data type of x:
 print(type(x)) # <class 'memoryview'>
+
+
+# 15.None
+x = None
+
+#display x:
+print(x) # None
+
+#display the data type of x:
+print(type(x)) # <class 'NoneType'>
