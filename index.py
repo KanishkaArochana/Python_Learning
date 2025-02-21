@@ -167,3 +167,14 @@ print(type(x)) #<class 'int'>
 x = float(80) + 90
 print(x) #170.0
 print(type(x)) # <class 'float'>
+
+# ===============================================
+
+# Convert String to Integer
+x = "987"
+print(x) # 987
+print(type(x)) #<class 'str'>
+
+x = int(x)
+print(x) # 987
+print(type(x)) #<class 'int'>
