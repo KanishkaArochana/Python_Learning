@@ -155,3 +155,15 @@ print(type(line)) #<class 'str'>
 
 # line = "Hello" + 4
 print(line) # TypeError: can only concatenate str (not "int") to str
+
+
+#--------------------------------------------- Convert ---------------------------------------------------------
+
+# Convert Integer to Float 
+x = 80 + 90
+print(x) #170
+print(type(x)) #<class 'int'>
+
+x = float(80) + 90
+print(x) #170.0
+print(type(x)) # <class 'float'>
