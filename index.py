@@ -178,3 +178,13 @@ print(type(x)) #<class 'str'>
 x = int(x)
 print(x) # 987
 print(type(x)) #<class 'int'>
+
+# ===============================================
+
+# Convert Integer to String 
+x = "Hello Word"
+# x = int(x) # Erro Can't String to Integer
+
+x = "987"
+x = int(x)
+print(type(x)) # Can Convert String nimber --> <class 'int'>
