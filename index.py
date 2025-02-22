@@ -188,3 +188,11 @@ x = "Hello Word"
 x = "987"
 x = int(x)
 print(type(x)) # Can Convert String nimber --> <class 'int'>
+
+#--------------------------------------------- INPUT Function -------------------------------------------------
+
+name = input("Enter Your Name :")
+print("Your name is : ", name)
+
+# Alrady Use to input funtion has a string data type
+print(type(name)) # Sach as <class 'str'>
